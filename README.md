@@ -30,5 +30,6 @@ Code uploaded on Github.
 1. Update Functionality is in development.
 2. Delete Functionality is to be done.
 3. Implementing RTK Query is remaining.
-4. Deployment of app is remaining.
-5. Refining the UI and doing more styling.
+4. Validation code to be implemented for registration.
+5. Deployment of app is remaining.
+6. Refining the UI and doing more styling.
