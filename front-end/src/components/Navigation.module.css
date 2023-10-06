@@ -1,0 +1,16 @@
+.logOutButton button {
+    display: flex;
+    justify-content: end;
+    width: inherit;
+    align-items: center;
+    border-radius: 16px;
+    padding: 12px 28px;
+    font-size: 16px;
+    margin: 0.1rem;
+}
+
+button:hover {
+    font-size: larger;
+    background-color:azure;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

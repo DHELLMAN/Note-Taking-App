@@ -1,0 +1,43 @@
+.card {
+    /* gap: 11rem; */
+    
+    background: linear-gradient(#250358, #440c66);
+    text-align: center;
+    border-radius: 6px;
+}
+
+.form-control {
+    align-items: center;
+    width:100%;
+    font-size: larger;
+    text-align: center;
+    
+}
+
+input, textarea{
+    width:100%;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.form-control .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn button{
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    padding: 12px 28px;
+    font-size: 16px;
+    margin: 0.1rem;
+}
+
+button:hover{
+    font-size: 20px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

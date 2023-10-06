@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import classes from './Navigation.module.css';
 
 const Navigation = () => {
 
@@ -9,15 +10,16 @@ const Navigation = () => {
   const logOutHandler = () =>{
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userID');
+    localStorage.removeItem('name');
     navigate('/');
   }
 
   return (
-    <>
+    <div className={classes.logOutButton}>
     { logInStatus &&
-      <button onClick={logOutHandler}>Logout</button>
+      <button  onClick={logOutHandler}>Logout</button>
     }
-    </>
+    </div>
 
   )
 }

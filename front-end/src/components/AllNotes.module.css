@@ -1,0 +1,11 @@
+.mainHeader {
+    padding: 0%;
+}
+
+.concepts {
+    width: auto;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5rem;
+}

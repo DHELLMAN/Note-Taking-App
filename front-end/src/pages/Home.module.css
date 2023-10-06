@@ -1,0 +1,36 @@
+.mainDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  margin: 100px;
+  width: 50%;
+  background: linear-gradient(#250358, #440c66);
+  text-align: center;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  padding: 12px 28px;
+  font-size: 16px;
+  margin: 2.1rem;
+}
+
+a{
+  margin: 20px;
+  font-size: 25px;
+  
+}
+
+h1{
+  margin-top: 20px;
+}

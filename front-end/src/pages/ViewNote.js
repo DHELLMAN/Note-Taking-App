@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
+import classes from './ViewNote.module.css';
 
 const ViewNote = () => {
 
@@ -49,12 +50,12 @@ const ViewNote = () => {
     }
 
     return (
-        <form>
-            <div className='concept'>
+        <form className={classes['form-control']}>
+            <div className={classes.card}>
                 <input type='text' value={data.title} onChange={changeHandler} name='title'/>
                 <textarea rows='5' value={data.description} onChange={changeHandler} name='description'/>
-                <div>
-                    <button className='btn' type='submit' onClick={editNoteHandler}>Update</button>
+                <div className={classes.btn}>
+                    <button type='submit' onClick={editNoteHandler}>Update</button>
                     <button className='btn' type='submit' onClick={deleteNoteHandler}>Delete</button>
                 </div>
             </div>

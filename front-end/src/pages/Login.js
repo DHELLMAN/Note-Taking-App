@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import classes from './SignUp_Login.module.css';
 
 const Login = () => {
 
@@ -19,14 +20,15 @@ const Login = () => {
     if(!user.data.status){
       return window.alert(user.data.msg);
     }
-    localStorage.setItem('userID',user.data.userID)
+    localStorage.setItem('userID',user.data.data.userID)
     localStorage.setItem('isLoggedIn',1);
+    localStorage.setItem('name',user.data.data.username);
     navigate('/userDashboard');
   }
   return (
     <header>
-      <nav className='concept'>
-        <form action='/userDashboard' onSubmit={loginHandler}  method='post'>
+      <nav className={classes.card}>
+        <form className={classes['form-control']} onSubmit={loginHandler}  method='post'>
           <div>
             <label htmlFor='email'>E-Mail</label>
             <input type='email' name='email' id='email'/>
@@ -36,7 +38,7 @@ const Login = () => {
             <input type='text' name='password' id='pass'/>
           </div>
           <div>
-            <button type='submit'>Login</button>
+            <button className={classes.btn} type='submit'>Login</button>
             <a href='/signup'>New User? Register Here...</a>
           </div>
         </form>

@@ -1,0 +1,17 @@
+.mainHeader{
+    display: flex;
+    gap: 1rem;
+    padding: 0px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(#250358, #440c66);
+    padding: 0.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 20px rgba(234, 78, 240, 0.2);
+    width: 50%;
+    transition: all 0.2s
+}

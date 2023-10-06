@@ -28,6 +28,4 @@ Code uploaded on Github.
 # TASK-REMAINING
 
 1. Implementing RTK Query is remaining.
-2. Validation code to be implemented for registration.
-3. Deployment of app is remaining.
-4. Refining the UI and doing more styling.
+2. Deployment of app is remaining.

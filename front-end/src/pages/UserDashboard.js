@@ -3,6 +3,7 @@ import AddNote from '../components/AddNote'
 import AllNotes from '../components/AllNotes'
 import axios from 'axios';
 import Note from '../components/Note';
+import classes from './UserDashboard.module.css';
 
 const UserDashboard = () => {
 
@@ -32,13 +33,12 @@ const UserDashboard = () => {
           )
 
   return (
-    <header>
-      <div>
-        <h1>Notes</h1>
+    <header className={classes.mainHeader}>
+      <div  className={classes.card}>
+        <h1>Your Notes</h1>
         <AddNote noteAdded={newNoteAdded}/>
       </div>
       <div>
-        <h1>Today's Notes</h1>
         <AllNotes notes={notes.length>0 ? notesData : noNotes}/>
       </div>
     </header>
