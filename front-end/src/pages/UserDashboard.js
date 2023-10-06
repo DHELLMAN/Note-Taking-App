@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import AddNote from './AddNote'
-import AllNotes from './AllNotes'
+import AddNote from '../components/AddNote'
+import AllNotes from '../components/AllNotes'
 import axios from 'axios';
-import Note from './Note';
+import Note from '../components/Note';
 
 const UserDashboard = () => {
 
