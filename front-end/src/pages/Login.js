@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import classes from './SignUp_Login.module.css';
+import { BASE_URL } from '../services/helper';
 
 const Login = () => {
 
@@ -16,7 +17,7 @@ const Login = () => {
         password: formData.password.value
     }
 
-    const user = await axios.post('http://localhost:8000/user/login',userData);
+    const user = await axios.post(`${BASE_URL}/user/login`,userData);
     if(!user.data.status){
       return window.alert(user.data.msg);
     }

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import classes from './ViewNote.module.css';
+import { BASE_URL } from '../services/helper';
 
 const ViewNote = () => {
 
@@ -28,7 +29,7 @@ const ViewNote = () => {
             description: data.description
         }
 
-        const update = await axios.post('http://localhost:8000/user/update-note',updatedData);
+        const update = await axios.post(`${BASE_URL}/user/update-note`,updatedData);
         window.alert(update.data.msg);
         if(update.data.status){
             navigate('/userDashboard');
@@ -42,7 +43,7 @@ const ViewNote = () => {
             noteID: state.noteData.id,
         }
 
-        const deleteNote = await axios.post('http://localhost:8000/user/delete-note',noteData);
+        const deleteNote = await axios.post(`${BASE_URL}/user/delete-note`,noteData);
         window.alert(deleteNote.data.msg);
         if(deleteNote.data.status){
             navigate('/userDashboard');

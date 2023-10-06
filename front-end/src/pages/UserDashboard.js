@@ -4,6 +4,7 @@ import AllNotes from '../components/AllNotes'
 import axios from 'axios';
 import Note from '../components/Note';
 import classes from './UserDashboard.module.css';
+import { BASE_URL } from '../services/helper';
 
 const UserDashboard = () => {
 
@@ -13,7 +14,7 @@ const UserDashboard = () => {
 
   useEffect(()=>{
     const fetchNotes = async()=>{
-      const notesData = await axios.post('http://localhost:8000/user/getNotes',{userID});
+      const notesData = await axios.post(`${BASE_URL}/user/getNotes`,{userID});
       if(notesData.data.status){
         setNotes(()=>notesData.data.notes);
       }

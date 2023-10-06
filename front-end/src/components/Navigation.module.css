@@ -1,6 +1,6 @@
 .logOutButton button {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     width: inherit;
     align-items: center;
     border-radius: 16px;

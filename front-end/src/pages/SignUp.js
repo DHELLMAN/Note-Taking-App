@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import classes from './SignUp_Login.module.css';
+import { BASE_URL } from '../services/helper';
 
 const SignUp = () => {
 
@@ -18,7 +19,7 @@ const SignUp = () => {
             password: formData.password.value
         }
 
-        const newUser = await axios.post('http://localhost:8000/user/signup',userData);
+        const newUser = await axios.post(`${BASE_URL}/user/signup`,userData);
         window.alert(newUser.data.msg);
         if(newUser.data.status){
             navigate('/login');

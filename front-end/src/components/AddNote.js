@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import classes from './AddNote.module.css';
+import { BASE_URL } from '../services/helper';
 
 const INITIAL_STATE = {
   title:'',
@@ -29,7 +30,7 @@ const AddNote = (props) => {
       }]
     }
 
-    const saveNoteRes = await axios.post('http://localhost:8000/user/addNote',noteData);
+    const saveNoteRes = await axios.post(`${BASE_URL}/user/addNote`,noteData);
     window.alert(saveNoteRes.data.msg);
     props.noteAdded();
     setNotesData(INITIAL_STATE);
