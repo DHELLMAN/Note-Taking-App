@@ -8,7 +8,6 @@ const ViewNote = () => {
 
     const navigate = useNavigate();
     const [loading,setLoading] = useState(false);
-
     const {state} = useLocation();
     const [data, setData] = useState({
         title: state.noteData.title,

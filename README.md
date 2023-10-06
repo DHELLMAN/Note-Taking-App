@@ -26,8 +26,9 @@ Code uploaded on Github.
 
 Basic Styling is done.
 
+App deployed on Netlify and Render
+
 
 # TASK-REMAINING
 
-1. Implementing RTK Query is remaining.
-2. Deployment of app is remaining.
+Implementing RTK Query is remaining.
