@@ -5,12 +5,14 @@ import { Outlet, useNavigate } from 'react-router-dom'
 const RootLayout = () => {
   const navigate = useNavigate();
   const logInStatus = localStorage.getItem('isLoggedIn');
+  const location = window.location.pathname;
+  console.log(location);
   useEffect(()=>{
-    const locationInvalid = window.location.pathname!=='/signup' && window.location.pathname!=='/login';
+    const locationInvalid = location!=='/signup' && location!=='/login';
     if(!logInStatus && locationInvalid){
       navigate('/');
     }
-  },[logInStatus,navigate]);
+  },[logInStatus,location,navigate]);
 
   return (
     <>
