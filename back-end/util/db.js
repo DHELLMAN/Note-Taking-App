@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const mongoConnect = (cb) => {
-    mongoose.connect('mongodb+srv://lmmalik933:Lokesh2104@cluster0.pvuqmls.mongodb.net/TECH?retryWrites=true&w=majority')
+    mongoose.connect(`${process.env.DATABASE}`)
     .then(()=>{
         console.log('Mongo Connected');
         cb();
