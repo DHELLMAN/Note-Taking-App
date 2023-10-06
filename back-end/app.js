@@ -6,6 +6,8 @@ const userRoutes = require('./routes/userRoutes');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
+const PORT = process.env.PORT || 8000
+
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -17,6 +19,6 @@ app.use('/admin', adminRoutes);
 app.use('/user', userRoutes);
 
 mongoConnect(()=>{
-    app.listen(8000);
-    console.log('Listening at 8000');
+    app.listen(PORT);
+    console.log(`Listening at ${PORT}`);
 })
