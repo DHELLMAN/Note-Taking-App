@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const ViewNote = (props) => {
+const ViewNote = () => {
+
+    const navigate = useNavigate();
 
     const {state} = useLocation();
     const [data, setData] = useState({
@@ -12,7 +14,7 @@ const ViewNote = (props) => {
 
     const changeHandler = (event) =>{
         setData(prevState=>{
-            return {...prevState, [event.target.name]:[event.target.value]}
+            return {...prevState, [event.target.name]:event.target.value}
         })
     }
 
@@ -27,12 +29,23 @@ const ViewNote = (props) => {
 
         const update = await axios.post('http://localhost:8000/user/update-note',updatedData);
         window.alert(update.data.msg);
-        //update functionality in between
+        if(update.data.status){
+            navigate('/userDashboard');
+        }
     }
 
-    const deleteNoteHandler = (event) =>{
+    const deleteNoteHandler = async(event) =>{
         event.preventDefault();
-        //delete note functionality remaining
+        const noteData = {
+            userID: localStorage.getItem('userID'),
+            noteID: state.noteData.id,
+        }
+
+        const deleteNote = await axios.post('http://localhost:8000/user/delete-note',noteData);
+        window.alert(deleteNote.data.msg);
+        if(deleteNote.data.status){
+            navigate('/userDashboard');
+        }
     }
 
     return (

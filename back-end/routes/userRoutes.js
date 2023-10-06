@@ -15,4 +15,6 @@ router.post('/getNotes',noteController.getNotes);
 
 router.post('/update-note',noteController.updateNote);
 
+router.post('/delete-note',noteController.deleteNote);
+
 module.exports = router;

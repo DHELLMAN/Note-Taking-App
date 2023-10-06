@@ -46,8 +46,69 @@ exports.getNotes = async(req,res,next)=>{
     });
 }
 
-exports.updateNote = (req,res,next)=>{
-    console.log(req.body);
+exports.updateNote = async(req,res,next)=>{
     const { userID, noteID, title, description} = req.body;
+
+    const updateNote = async()=>{
+        const update = await Note.updateOne(
+            {
+                userID,
+                'notes._id':noteID
+            },
+            {
+                $set: {
+                    'notes.$.title':title,
+                    'notes.$.description': description
+                }
+            }
+        )
+        return update;
+    }
+
+    try{
+        const update = await updateNote();
+        res.status(200).send({
+            status: update.acknowledged,
+            msg:'Note Updated Successfully'
+        })
+    }catch(err){
+        console.log(err);
+            res.status(200).send({
+                status: false,
+                msg:'Unable to update Note. Please Try Again'
+            })
+    }
+}
+
+exports.deleteNote = async(req,res,next) => {
+    const {userID, noteID} = req.body;
+
+    const deleteNote = async()=>{
+        const del = await Note.updateOne(
+            {userID},
+            {
+                $pull: {
+                    notes: {
+                        _id: noteID
+                    }
+                }
+            }
+        )
+        return del;
+    }
+
+    try{
+        const del = await deleteNote();
+        res.status(200).send({
+            status: del.acknowledged,
+            msg:'Note Deleted Successfully'
+        })
+    }catch(err){
+        console.log(err);
+            res.status(200).send({
+                status: false,
+                msg:'Unable to Delete Note. Please Try Again'
+            })
+    }
 
 }
