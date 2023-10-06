@@ -4,9 +4,8 @@ exports.addNewNote = async (req,res,next)=>{
     
     console.log('in add new note back end');
     const {userID, notes} = req.body;
-    const validate = validateNote({...notes[0]});
-    if(validate){
-
+    const validate = validateNote(notes[0].title,notes[0].description);
+    if(validate.status){
         const existingNotes = await Note.find({userID});
         if(existingNotes.length>0){
         Note.updateOne(
@@ -58,8 +57,8 @@ exports.getNotes = async(req,res,next)=>{
 exports.updateNote = async(req,res,next)=>{
     const { userID, noteID, title, description} = req.body;
 
-    const validate = await validateNote(title, description);
-    if(validate){
+    const validate = validateNote(title, description);
+    if(validate.status){
 
         const updateNote = async()=>{
             const update = await Note.updateOne(
@@ -131,14 +130,13 @@ exports.deleteNote = async(req,res,next) => {
 }
 
 const validateNote = (title, desc) =>{
-    console.log(title,desc);
-    if(title==='' && desc===''){
+    if(title === '' && desc === ''){
         return {
             status:false,
             msg:'Atleast One Field is required to add a note!'
         }
     }
-
-    return true;
-
+    return {
+        status:true
+    };
 }

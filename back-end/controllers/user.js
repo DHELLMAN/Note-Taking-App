@@ -4,8 +4,8 @@ const welcomeMail = require("../util/mail");
 exports.newUserRegistration = async(req,res,next)=>{
     console.log('reaching backend signup page');
     const { username, email, contact, password } = req.body;
-    const validData = await validation({...req.body});
-    if(validData){
+    const validData = validation({...req.body});
+    if(validData.status){
 
         const existingUser = await User.find({email});
         if(existingUser.length!==0){
@@ -93,5 +93,7 @@ const validation = ({username,email,contact,password})=>{
         }
     }
 
-    return true;
+    return {
+        status: true
+    }
 }
