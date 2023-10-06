@@ -7,6 +7,7 @@ import { BASE_URL } from '../services/helper';
 const ViewNote = () => {
 
     const navigate = useNavigate();
+    const [loading,setLoading] = useState(false);
 
     const {state} = useLocation();
     const [data, setData] = useState({
@@ -22,6 +23,7 @@ const ViewNote = () => {
 
     const editNoteHandler = async (event) =>{
         event.preventDefault();
+        setLoading(prevState=>!prevState);
         const updatedData = {
             userID: localStorage.getItem('userID'),
             noteID: state.noteData.id,
@@ -30,6 +32,7 @@ const ViewNote = () => {
         }
 
         const update = await axios.post(`${BASE_URL}/user/update-note`,updatedData);
+        setLoading(prevState=>!prevState);
         window.alert(update.data.msg);
         if(update.data.status){
             navigate('/userDashboard');
@@ -38,12 +41,14 @@ const ViewNote = () => {
 
     const deleteNoteHandler = async(event) =>{
         event.preventDefault();
+        setLoading(prevState=>!prevState);
         const noteData = {
             userID: localStorage.getItem('userID'),
             noteID: state.noteData.id,
         }
 
         const deleteNote = await axios.post(`${BASE_URL}/user/delete-note`,noteData);
+        setLoading(prevState=>!prevState);
         window.alert(deleteNote.data.msg);
         if(deleteNote.data.status){
             navigate('/userDashboard');
@@ -52,6 +57,8 @@ const ViewNote = () => {
 
     return (
         <form className={classes['form-control']}>
+            {loading ? <h1>Making Changes...</h1>
+                :
             <div className={classes.card}>
                 <input type='text' value={data.title} onChange={changeHandler} name='title'/>
                 <textarea rows='5' value={data.description} onChange={changeHandler} name='description'/>
@@ -60,6 +67,7 @@ const ViewNote = () => {
                     <button className='btn' type='submit' onClick={deleteNoteHandler}>Delete</button>
                 </div>
             </div>
+            }
         </form>
     )
 }

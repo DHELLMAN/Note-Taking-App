@@ -9,6 +9,7 @@ const INITIAL_STATE = {
 }
 const AddNote = (props) => {
 
+  const [loading,setLoading] = useState(false);
   const [notesData, setNotesData] = useState(INITIAL_STATE);
 
   const inputChangeHandler = (event)=>{
@@ -22,6 +23,7 @@ const AddNote = (props) => {
 
   const submitHandler = async(event) =>{
     event.preventDefault();
+    setLoading(prevState=>!prevState);
     const noteData = {
       userID: localStorage.getItem('userID'),
       notes: [{
@@ -31,6 +33,7 @@ const AddNote = (props) => {
     }
 
     const saveNoteRes = await axios.post(`${BASE_URL}/user/addNote`,noteData);
+    setLoading(prevState=>!prevState);
     window.alert(saveNoteRes.data.msg);
     props.noteAdded();
     setNotesData(INITIAL_STATE);
@@ -45,9 +48,12 @@ const AddNote = (props) => {
         <div>
         <textarea name="description" id="description" rows="5" value={notesData.description} onChange={inputChangeHandler} placeholder='Note Description...'/>
         </div>
-        <div className={classes.btn}>
-          <button type='submit'>Add Note</button>
-        </div>
+        {loading ? <h1>Adding Note...</h1>
+                  :
+          <div className={classes.btn}>
+            <button type='submit'>Add Note</button>
+          </div>
+        }
       </form>
     </div>
   )

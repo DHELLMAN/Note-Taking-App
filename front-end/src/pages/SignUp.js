@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import classes from './SignUp_Login.module.css';
@@ -6,10 +6,12 @@ import { BASE_URL } from '../services/helper';
 
 const SignUp = () => {
 
+    const [loading,setLoading] = useState(false);
     const navigate = useNavigate();
 
     const signupHandler = async (event)=>{
         event.preventDefault();
+        setLoading(prevState=>!prevState);
         console.log('Signup submit working');
         const formData = event.target;
         const userData = {
@@ -20,6 +22,7 @@ const SignUp = () => {
         }
 
         const newUser = await axios.post(`${BASE_URL}/user/signup`,userData);
+        setLoading(prevState=>!prevState);
         window.alert(newUser.data.msg);
         if(newUser.data.status){
             navigate('/login');
@@ -28,6 +31,8 @@ const SignUp = () => {
     return (
         <header>
             <nav className={classes.card}>
+                {loading ? <h1>Analyzing your details...</h1>
+                :
                 <form className={classes['form-control']} onSubmit={signupHandler} method='post'>
                     <div>
                         <label htmlFor='username'>Name</label>
@@ -50,6 +55,7 @@ const SignUp = () => {
                         <a href='/login'>Already registered? Login here...</a>
                     </div>
                 </form>
+                }
             </nav>
         </header>
     )
