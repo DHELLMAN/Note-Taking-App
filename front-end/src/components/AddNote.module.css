@@ -1,6 +1,6 @@
 .card {
     /* gap: 11rem; */
-    
+    display: block;
     background: linear-gradient(#250358, #440c66);
     text-align: center;
     border-radius: 6px;
@@ -26,6 +26,7 @@ input, textarea{
     align-items: center;
 }
 
+
 .btn button{
     width: inherit;
     display: flex;
@@ -34,7 +35,7 @@ input, textarea{
     border-radius: 6px;
     padding: 12px 28px;
     font-size: 16px;
-    margin: 0.1rem;
+    margin-top: 1rem;
 }
 
 button:hover{

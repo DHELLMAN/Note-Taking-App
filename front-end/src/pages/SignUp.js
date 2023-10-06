@@ -19,10 +19,10 @@ const SignUp = () => {
         }
 
         const newUser = await axios.post('http://localhost:8000/user/signup',userData);
-        if(!newUser.data.status){
-            return window.alert(newUser.data.msg);
+        window.alert(newUser.data.msg);
+        if(newUser.data.status){
+            navigate('/login');
         }
-        navigate('/login');
     }
     return (
         <header>

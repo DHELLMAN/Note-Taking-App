@@ -17,6 +17,12 @@
     font-size: larger;
 }
 
+form div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .form-control input{
     width: 50%;
     border-radius: 12px;

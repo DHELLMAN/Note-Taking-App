@@ -35,7 +35,7 @@ const Login = () => {
           </div>
           <div>
             <label htmlFor='pass'>Password</label>
-            <input type='text' name='password' id='pass'/>
+            <input type='password' name='password' id='pass'/>
           </div>
           <div>
             <button className={classes.btn} type='submit'>Login</button>

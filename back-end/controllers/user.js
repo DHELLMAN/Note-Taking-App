@@ -5,7 +5,7 @@ exports.newUserRegistration = async(req,res,next)=>{
     console.log('reaching backend signup page');
     const { username, email, contact, password } = req.body;
     const validData = await validation({...req.body});
-    if(validData.status){
+    if(validData){
 
         const existingUser = await User.find({email});
         if(existingUser.length!==0){
@@ -92,4 +92,6 @@ const validation = ({username,email,contact,password})=>{
             msg:'Please Choose a password of minimum 8 characters'
         }
     }
+
+    return true;
 }

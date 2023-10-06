@@ -6,7 +6,7 @@ Initially there is a Home Page, where you will get 2 links for Login and SignUp
 
 Both Links will redirect to their corresponding Page.
 
-Unique User Account is created based on Email.
+Unique User Account is created based on Email, after proper validation of details entered by user.
 
 On Successful Registration, a mail is sent to the user via NodeMailer and through GMAIL.
 
@@ -23,6 +23,8 @@ Axios is used for implementing API.
 MVC structure is followed in Back-End.
 
 Code uploaded on Github.
+
+Basic Styling is done.
 
 
 # TASK-REMAINING
