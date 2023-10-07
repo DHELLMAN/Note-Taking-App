@@ -5,10 +5,12 @@ import UserDashboard from './pages/UserDashboard';
 import RootLayout from './components/RootLayout';
 import SignUp from './pages/SignUp';
 import ViewNote from './pages/ViewNote';
+import ErrorElement from './pages/ErrorElement';
 
 const router = createBrowserRouter([
   { path:'/', 
     element: <RootLayout/>,
+    errorElement:<ErrorElement/>,
     children: [
       { index:true, element:<Home/>},
       { path:'login', element:<Login/>},

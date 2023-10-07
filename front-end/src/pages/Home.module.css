@@ -15,22 +15,26 @@
   align-items: center;
 }
 
+.card h1{
+  margin-top: 20px;
+  font-size: xx-large;
+}
+
 .links {
-  display: flex;
-  justify-content: center;
+  display: block;
+  justify-content: space-between;
   align-items: center;
   border-radius: 6px;
-  padding: 12px 28px;
-  font-size: 16px;
-  margin: 2.1rem;
-}
-
-a{
-  margin: 20px;
+  padding: 2px 28px;
   font-size: 25px;
-  
 }
 
-h1{
+.links{
   margin-top: 20px;
+}
+
+.links:hover{
+  font-size: 30px;
+  color: red;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }

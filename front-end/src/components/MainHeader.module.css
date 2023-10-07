@@ -4,6 +4,10 @@
     display: block;
 }
 
+.header div h1{
+    font-size:50px;
+}
+
 .logOut {
     display: flex;
     justify-content: flex-end;

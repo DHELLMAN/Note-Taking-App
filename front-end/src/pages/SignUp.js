@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import classes from './SignUp_Login.module.css';
 import { BASE_URL } from '../services/helper';
 
@@ -52,7 +52,7 @@ const SignUp = () => {
                     </div>
                     <div>
                         <button className={classes.btn} type='submit'>Register</button>
-                        <a href='/login'>Already registered? Login here...</a>
+                        <NavLink className={classes.link} to='/login'>Already registered? Login here...</NavLink>
                     </div>
                 </form>
                 }

@@ -44,11 +44,12 @@ form div {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-a{
+.link{
     color: #1c9975;
 }
 
-a:hover{
+.link:hover{
     color: red;
+    font-size: 22px;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }

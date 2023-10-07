@@ -1,0 +1,11 @@
+.wrapper {
+    display: block;
+    margin: 200px;
+    font-size: x-large;
+}
+
+.homeLink{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}

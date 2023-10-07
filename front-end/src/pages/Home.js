@@ -1,17 +1,18 @@
 import React from 'react';
 import classes from './Home.module.css';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
   return (
     <div className={classes.mainDiv}>
     <header className={classes.card}>
       <h1>Please Login or Sign Up to Continue...</h1>
-      <div className={classes.links}>
+      <div>
         <div>
-          <a href='/login'>Login</a>
+          <NavLink className={classes.links} to='/login'>Login</NavLink>
         </div>
         <div>  
-          <a href='/signup'>Sign Up</a>
+          <NavLink className={classes.links} to='/signup'>Sign Up</NavLink>
         </div>
       </div>
     </header>

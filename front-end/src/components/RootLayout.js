@@ -6,13 +6,25 @@ const RootLayout = () => {
   const navigate = useNavigate();
   const logInStatus = localStorage.getItem('isLoggedIn');
   const location = window.location.pathname;
-  console.log(location);
   useEffect(()=>{
     const locationInvalid = location!=='/signup' && location!=='/login';
     if(!logInStatus && locationInvalid){
       navigate('/');
     }
+    if(logInStatus && (location==='/signup' || location==='/login' || location==='/')){
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('userID');
+      localStorage.removeItem('name');
+    }
   },[logInStatus,location,navigate]);
+
+  const beforeUnloadListener = (event) => {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userID');
+    localStorage.removeItem('name');
+};
+
+  window.addEventListener("beforeunload", beforeUnloadListener);
 
   return (
     <>
